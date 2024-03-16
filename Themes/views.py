@@ -1,3 +1,5 @@
+from urllib import request
+
 from django.shortcuts import render
 from .models import Topic
 
@@ -21,3 +23,9 @@ def topic_list(request):
 def topic_plans(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
     return render(request, 'themes/topic_plans.html', {'topic': topic})
+
+def add_news(rquest):
+    if request.method == 'POST':
+        pass
+    else:
+        return render(request, 'news_add.html', context=rquest)
